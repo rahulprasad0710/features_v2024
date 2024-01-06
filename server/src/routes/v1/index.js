@@ -6,6 +6,9 @@ router.get("/rate-api1", (req, res) => {
 });
 
 router.get("/", (req, res) => {
+    const ipAddress =
+        req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    console.log("ipAddress", ipAddress);
     res.send("Hello World! from v1");
 });
 
